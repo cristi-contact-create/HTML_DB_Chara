@@ -158,38 +158,19 @@
           <p class="field-hint">Up to 2 PNG or WebP files</p>
           <div class="image-slots">
             <div class="image-slot" data-slot="1">
-              <img alt="" hidden />
-              <label class="focus-label">Preview focus
-                <select name="image1_focus" aria-label="Image 1 preview focus">
-                  <option value="center center">Center</option>
-                  <option value="top center">Top</option>
-                  <option value="bottom center">Bottom</option>
-                  <option value="center left">Left</option>
-                  <option value="center right">Right</option>
-                  <option value="top left">Top left</option>
-                  <option value="top right">Top right</option>
-                  <option value="bottom left">Bottom left</option>
-                  <option value="bottom right">Bottom right</option>
-                </select>
-              </label>
+              <div class="image-preview">
+                <img alt="" hidden />
+                <div class="focus-overlay" aria-hidden="true"></div>
+              </div>
+              <label class="focus-label">Click inside the preview to move the crop focus square.</label>
+              <input type="hidden" name="image1_focus" />
               <label class="file-label">Image 1<input type="file" accept="image/png,image/webp" data-upload="1" /></label>
               <button type="button" class="btn small ghost remove-img" data-slot="1" hidden>Remove</button>
             </div>
             <div class="image-slot" data-slot="2">
-              <img alt="" hidden />
-              <label class="focus-label">Preview focus
-                <select name="image2_focus" aria-label="Image 2 preview focus">
-                  <option value="center center">Center</option>
-                  <option value="top center">Top</option>
-                  <option value="bottom center">Bottom</option>
-                  <option value="center left">Left</option>
-                  <option value="center right">Right</option>
-                  <option value="top left">Top left</option>
-                  <option value="top right">Top right</option>
-                  <option value="bottom left">Bottom left</option>
-                  <option value="bottom right">Bottom right</option>
-                </select>
-              </label>
+              <div class="image-preview">
+                <img alt="" hidden />
+              </div>
               <label class="file-label">Image 2<input type="file" accept="image/png,image/webp" data-upload="2" /></label>
               <button type="button" class="btn small ghost remove-img" data-slot="2" hidden>Remove</button>
             </div>

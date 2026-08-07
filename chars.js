@@ -53,7 +53,6 @@ function enrichCharacter(char) {
   c.image1 = getCharacterImageUrl(c.id, 1) || makePlaceholderPng((c.name || '').charAt(0) || '?');
   c.image2 = getCharacterImageUrl(c.id, 2) || null;
   c.image1_focus = c.image1_focus || 'center center';
-  c.image2_focus = c.image2_focus || 'center center';
   return c;
 }
 
