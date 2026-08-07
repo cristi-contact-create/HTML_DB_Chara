@@ -373,6 +373,21 @@ textarea {
   opacity: 0.9;
 }
 
+.image-slot .focus-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.image-slot .focus-label select {
+  margin-top: 0.25rem;
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
 .card:hover {
   border-color: var(--accent-dim);
   transform: translateY(-1px);

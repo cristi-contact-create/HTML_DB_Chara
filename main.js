@@ -97,6 +97,13 @@ function sortCharacters(chars) {
   return items;
 }
 
+function getImageFocus(slot) {
+  var form = document.getElementById('form-character');
+  if (!form) return 'center center';
+  var field = form.elements['image' + slot + '_focus'];
+  return (field && field.value) ? field.value : 'center center';
+}
+
 function setImageSlot(slot, url) {
   var box = $('.image-slot[data-slot="' + slot + '"]');
   if (!box) return;
@@ -105,10 +112,12 @@ function setImageSlot(slot, url) {
   if (url) {
     img.src = url;
     img.hidden = false;
+    img.style.objectPosition = getImageFocus(slot);
     img.setAttribute('data-photo-view', '1');
     removeBtn.hidden = false;
   } else {
     img.removeAttribute('src');
+    img.style.objectPosition = '';
     img.removeAttribute('data-photo-view');
     img.hidden = true;
     removeBtn.hidden = true;
@@ -153,7 +162,7 @@ function refreshAll() {
         var dc = degreeColors(c.job_degree);
         cardStyle = ' style="border-color:' + dc.border + ';box-shadow:0 0 12px ' + dc.glow + '"';
       }
-      var thumbInner = c.image1 ? photoButtonHtml(c.image1, fullName(c), 'card-photo-btn') : 'No image';
+      var thumbInner = c.image1 ? photoButtonHtml(c.image1, fullName(c), 'card-photo-btn', c.image1_focus) : 'No image';
       var jobInfo = [c.job_title, c.job_degree, c.job_school].filter(Boolean).join(' · ');
       var bday = formatBirthday(c.birthday);
       var meta = [jobInfo, bday].filter(Boolean).join(' · ');
@@ -224,7 +233,7 @@ function renderCharRow(chars, max, degree) {
 }
 
 function renderCharChip(c, degree) {
-  var photo = c.image1 ? photoButtonHtml(c.image1, fullName(c), 'job-char-photo-btn') : '<span class="job-char-photo empty">?</span>';
+  var photo = c.image1 ? photoButtonHtml(c.image1, fullName(c), 'job-char-photo-btn', c.image1_focus) : '<span class="job-char-photo empty">?</span>';
   var chipStyle = degree ? ' style="' + degreeChipStyle(degree) + '"' : '';
   return '<div class="job-char-chip" data-char-id="' + c.id + '" title="' + escapeHtml(fullName(c)) + (degree ? ' · ' + escapeHtml(degree) : '') + '"' + chipStyle + '>' + photo + '<span class="job-char-name">' + escapeHtml(fullName(c)) + '</span></div>';
 }
@@ -256,6 +265,7 @@ function openPhotoViewer(url, caption) {
   var cap = $('#photo-viewer-caption');
   img.src = url;
   img.alt = caption || 'Character photo';
+  img.style.objectPosition = 'center center';
   cap.textContent = caption || '';
   openPopup('popup-photo');
 }
@@ -330,6 +340,8 @@ function openCharacterForm(id) {
     form.elements.skills.value = c.skills || '';
     form.elements.hobby.value = c.hobby || '';
     form.elements.weakness.value = c.weakness || '';
+    form.elements['image1_focus'].value = c.image1_focus || 'center center';
+    form.elements['image2_focus'].value = c.image2_focus || 'center center';
     setImageSlot(1, c.image1);
     setImageSlot(2, c.image2);
     fillJobSelect(c.job_id);
@@ -340,6 +352,8 @@ function openCharacterForm(id) {
     // clear the bday day/month inputs if present
     if (form.elements['bday_day']) form.elements['bday_day'].value = '';
     if (form.elements['bday_month']) form.elements['bday_month'].value = '';
+    form.elements['image1_focus'].value = 'center center';
+    form.elements['image2_focus'].value = 'center center';
     form.elements.status_icon.value = '';
     buildIconPicker(null);
   }
@@ -389,6 +403,8 @@ function saveCharacterForm(e) {
     hobby: nullable(form.elements.hobby.value),
     weakness: nullable(form.elements.weakness.value),
     status_icon: form.elements.status_icon && form.elements.status_icon.value ? form.elements.status_icon.value : null,
+    image1_focus: form.elements['image1_focus'] ? form.elements['image1_focus'].value : 'center center',
+    image2_focus: form.elements['image2_focus'] ? form.elements['image2_focus'].value : 'center center',
   };
   if (!payload.name || !payload.last_name) { alert('Name and last name are required.'); return; }
   var charId;

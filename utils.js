@@ -84,10 +84,11 @@ function degreeChipStyle(degree) {
   );
 }
 
-function photoButtonHtml(url, name, className) {
+function photoButtonHtml(url, name, className, focus) {
+  var imgStyle = focus ? ' style="object-position:' + focus + ';"' : '';
   return (
     '<button type="button" class="' + className + '" data-photo="' + url + '" data-name="' + escapeHtml(name) + '" title="View larger">' +
-    '<img src="' + url + '" alt="" /></button>'
+    '<img src="' + url + '" alt=""' + imgStyle + ' /></button>'
   );
 }
 
