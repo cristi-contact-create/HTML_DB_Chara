@@ -1,0 +1,494 @@
+{
+  "jobs": [
+    {
+      "school": null,
+      "degree": "Libre",
+      "career": "Arqueólogo",
+      "comment": "Aventura en la selva",
+      "id": 4
+    },
+    {
+      "school": null,
+      "degree": "Libre",
+      "career": "Dueño de un negocio",
+      "comment": "A trabajar",
+      "id": 5
+    },
+    {
+      "school": null,
+      "degree": "Libre",
+      "career": "Dueño de un restaurante",
+      "comment": "Escapada Gourmet",
+      "id": 6
+    },
+    {
+      "school": null,
+      "degree": "Libre",
+      "career": "Especialista en cuidado personal",
+      "comment": "Día de spa",
+      "id": 7
+    },
+    {
+      "school": null,
+      "degree": "Libre",
+      "career": "Granjero",
+      "comment": "Vida en el pueblo",
+      "id": 8
+    },
+    {
+      "school": null,
+      "degree": "Libre",
+      "career": "Propietario de bienes inmuebles",
+      "comment": "Se alquila",
+      "id": 9
+    },
+    {
+      "school": null,
+      "degree": "Libre",
+      "career": "Ranchero",
+      "comment": "Rancho de caballos",
+      "id": 10
+    },
+    {
+      "school": null,
+      "degree": "Libre",
+      "career": "Vendedor ambulante",
+      "comment": "Urbanitas/Vida ecológica/Chef de casa/Creaciones cristalinas",
+      "id": 11
+    },
+    {
+      "school": null,
+      "degree": "Libre",
+      "career": "Veterinario",
+      "comment": "Perros y gatos",
+      "id": 12
+    },
+    {
+      "school": null,
+      "degree": "-",
+      "career": "Interiorista",
+      "comment": "Interiorismo",
+      "id": 13
+    },
+    {
+      "school": null,
+      "degree": "-",
+      "career": "Investigador paranormal",
+      "comment": "Fenómenos paranormales",
+      "id": 14
+    },
+    {
+      "school": null,
+      "degree": "-",
+      "career": "Segador de almas",
+      "comment": "Vida y más allá",
+      "id": 15
+    },
+    {
+      "school": "Historia",
+      "degree": "Abogado",
+      "career": "Juez",
+      "comment": "Días de Universidad",
+      "id": 16
+    },
+    {
+      "school": null,
+      "degree": "STUDENT",
+      "career": "STUDENT",
+      "comment": null,
+      "id": 17
+    },
+    {
+      "school": "Lengua y Literatura",
+      "degree": "Abogado",
+      "career": "Abogado privado",
+      "comment": "Días de Universidad",
+      "id": 18
+    },
+    {
+      "school": "Psicología",
+      "degree": "Agente secreto",
+      "career": "Agente diamante",
+      "comment": null,
+      "id": 19
+    },
+    {
+      "school": "Villanía",
+      "degree": "Agente secreto",
+      "career": "Villano",
+      "comment": null,
+      "id": 20
+    },
+    {
+      "school": "Arte dramático",
+      "degree": "Artista de entretenimiento",
+      "career": "Humorista",
+      "comment": null,
+      "id": 21
+    },
+    {
+      "school": "Bellas Artes",
+      "degree": "Artista de entretenimiento",
+      "career": "Músico",
+      "comment": null,
+      "id": 22
+    },
+    {
+      "school": "Ciencias Informáticas",
+      "degree": "Asalariado",
+      "career": "Experto",
+      "comment": "Escapada en la nieve",
+      "id": 23
+    },
+    {
+      "school": "Comunicación",
+      "degree": "Asalariado",
+      "career": "Supervisor",
+      "comment": "Escapada en la nieve",
+      "id": 24
+    },
+    {
+      "school": null,
+      "degree": "Asesor romántico",
+      "career": "Especialista en emparejamientos",
+      "comment": "Viva el amor",
+      "id": 25
+    },
+    {
+      "school": null,
+      "degree": "Asesor romántico",
+      "career": "Terapeuta sentimental",
+      "comment": "Viva el amor",
+      "id": 26
+    },
+    {
+      "school": "Física",
+      "degree": "Astronauta",
+      "career": "Agente espacial",
+      "comment": null,
+      "id": 27
+    },
+    {
+      "school": "Villanía",
+      "degree": "Astronauta",
+      "career": "Contrabandista interestelar",
+      "comment": null,
+      "id": 28
+    },
+    {
+      "school": "Bellas Artes",
+      "degree": "Autónomo",
+      "career": "Artista digital autónomo",
+      "comment": null,
+      "id": 29
+    },
+    {
+      "school": "Bellas Artes",
+      "degree": "Autónomo",
+      "career": "Fabricante autónomo",
+      "comment": "Vida ecológica",
+      "id": 30
+    },
+    {
+      "school": "Bellas Artes",
+      "degree": "Autónomo",
+      "career": "Fotógrafo de moda autónomo",
+      "comment": "Moschino",
+      "id": 31
+    },
+    {
+      "school": "Ciencias Informáticas",
+      "degree": "Autónomo",
+      "career": "Programador autónomo",
+      "comment": null,
+      "id": 32
+    },
+    {
+      "school": "Lengua y Literatura",
+      "degree": "Autónomo",
+      "career": "Escritor autónomo",
+      "comment": null,
+      "id": 33
+    },
+    {
+      "school": "Arte dramático",
+      "degree": "Base",
+      "career": "Actor",
+      "comment": "Rumbo a la fama",
+      "id": 34
+    },
+    {
+      "school": "Biología",
+      "degree": "Base",
+      "career": "Médico",
+      "comment": "A trabajar",
+      "id": 35
+    },
+    {
+      "school": "Física",
+      "degree": "Base",
+      "career": "Científico",
+      "comment": "A trabajar",
+      "id": 36
+    },
+    {
+      "school": "Psicología",
+      "degree": "Base",
+      "career": "Detective",
+      "comment": "A trabajar",
+      "id": 37
+    },
+    {
+      "school": "Biología",
+      "degree": "Conservacionista",
+      "career": "Biólogo marino",
+      "comment": "Vida isleña",
+      "id": 38
+    },
+    {
+      "school": "Economía",
+      "degree": "Conservacionista",
+      "career": "Gestor medioambiental",
+      "comment": "Vida isleña",
+      "id": 39
+    },
+    {
+      "school": "Ciencias Informáticas",
+      "degree": "Criminal",
+      "career": "Oráculo",
+      "comment": null,
+      "id": 40
+    },
+    {
+      "school": "Villanía",
+      "degree": "Criminal",
+      "career": "Jefazo",
+      "comment": null,
+      "id": 41
+    },
+    {
+      "school": "Artes Culinarias",
+      "degree": "Crítico",
+      "career": "Crítico gastronómico",
+      "comment": "Urbanitas",
+      "id": 42
+    },
+    {
+      "school": "Historia del Arte",
+      "degree": "Crítico",
+      "career": "Crítico de arte",
+      "comment": "Urbanitas",
+      "id": 43
+    },
+    {
+      "school": null,
+      "degree": "Deportista",
+      "career": "Deportista profesional",
+      "comment": null,
+      "id": 44
+    },
+    {
+      "school": "Biología",
+      "degree": "Deportista",
+      "career": "Culturista",
+      "comment": null,
+      "id": 45
+    },
+    {
+      "school": "Comunicación",
+      "degree": "Diseñador de ingeniería civil",
+      "career": "Planificador urbanístico",
+      "comment": "Vida ecológica",
+      "id": 46
+    },
+    {
+      "school": "Física",
+      "degree": "Diseñador de ingeniería civil",
+      "career": "Técnico medioambiental",
+      "comment": "Vida ecológica",
+      "id": 47
+    },
+    {
+      "school": "Economía",
+      "degree": "Educador",
+      "career": "Administrador",
+      "comment": "Días de Universidad",
+      "id": 48
+    },
+    {
+      "school": "Psicología",
+      "degree": "Educador",
+      "career": "Profesor",
+      "comment": "Días de Universidad",
+      "id": 49
+    },
+    {
+      "school": "Comunicación",
+      "degree": "Escritor",
+      "career": "Periodista",
+      "comment": null,
+      "id": 50
+    },
+    {
+      "school": "Lengua y Literatura",
+      "degree": "Escritor",
+      "career": "Autor",
+      "comment": null,
+      "id": 51
+    },
+    {
+      "school": "Arte dramático",
+      "degree": "Gestor de redes sociales",
+      "career": "Personalidad de Internet",
+      "comment": "Urbanitas",
+      "id": 52
+    },
+    {
+      "school": "Comunicación",
+      "degree": "Gestor de redes sociales",
+      "career": "Relaciones públicas",
+      "comment": "Urbanitas",
+      "id": 53
+    },
+    {
+      "school": null,
+      "degree": "Gurú tecnológico",
+      "career": "Jugador de ciberdeportes",
+      "comment": null,
+      "id": 54
+    },
+    {
+      "school": "Ciencias Informáticas",
+      "degree": "Gurú tecnológico",
+      "career": "Emprendedor",
+      "comment": null,
+      "id": 55
+    },
+    {
+      "school": "Bellas Artes",
+      "degree": "Influencer de estilo",
+      "career": "Estilista",
+      "comment": null,
+      "id": 56
+    },
+    {
+      "school": "Historia del Arte",
+      "degree": "Influencer de estilo",
+      "career": "Creador de tendencias",
+      "comment": null,
+      "id": 57
+    },
+    {
+      "school": "Ciencias Informáticas",
+      "degree": "Ingeniero",
+      "career": "Ingeniero informático",
+      "comment": "Días de Universidad",
+      "id": 58
+    },
+    {
+      "school": "Física",
+      "degree": "Ingeniero",
+      "career": "Ingeniero mecánico",
+      "comment": "Días de Universidad",
+      "id": 59
+    },
+    {
+      "school": "Bellas Artes",
+      "degree": "Jardinero",
+      "career": "Diseñador floral",
+      "comment": "Y las 4 estaciones",
+      "id": 60
+    },
+    {
+      "school": "Biología",
+      "degree": "Jardinero",
+      "career": "Botánico",
+      "comment": "Y las 4 estaciones",
+      "id": 61
+    },
+    {
+      "school": "Historia",
+      "degree": "Militar",
+      "career": "Oficial",
+      "comment": "Strangerville",
+      "id": 62
+    },
+    {
+      "school": "Psicología",
+      "degree": "Militar",
+      "career": "Agente de operaciones encubiertas",
+      "comment": "Strangerville",
+      "id": 63
+    },
+    {
+      "school": "Biología",
+      "degree": "Personal funerario",
+      "career": "Tanatopractor",
+      "comment": "Vida y más allá",
+      "id": 64
+    },
+    {
+      "school": "Psicología",
+      "degree": "Personal funerario",
+      "career": "Director de pompas fúnebres",
+      "comment": "Vida y más allá",
+      "id": 65
+    },
+    {
+      "school": "Bellas Artes",
+      "degree": "Pintor",
+      "career": "Maestro del realismo",
+      "comment": null,
+      "id": 66
+    },
+    {
+      "school": "Historia del Arte",
+      "degree": "Pintor",
+      "career": "Mecenas del arte",
+      "comment": null,
+      "id": 67
+    },
+    {
+      "school": "Comunicación",
+      "degree": "Político",
+      "career": "Organizador benéfico",
+      "comment": "Urbanitas",
+      "id": 68
+    },
+    {
+      "school": "Historia",
+      "degree": "Político",
+      "career": "Político",
+      "comment": "Urbanitas",
+      "id": 69
+    },
+    {
+      "school": "Comunicación",
+      "degree": "Sim de negocios",
+      "career": "Directivo",
+      "comment": null,
+      "id": 70
+    },
+    {
+      "school": "Economía",
+      "degree": "Sim de negocios",
+      "career": "Inversor",
+      "comment": null,
+      "id": 71
+    },
+    {
+      "school": "Artes Culinarias",
+      "degree": "Trabajador culinario",
+      "career": "Chef",
+      "comment": null,
+      "id": 72
+    },
+    {
+      "school": "Clase oyente",
+      "degree": "trabajador culinario",
+      "career": "Coctelero",
+      "comment": null,
+      "id": 73
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chara DB</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-titles">
+      <h1>Chara DB</h1>
+      <p class="local-note">All data saved in <strong>localStorage</strong> (this browser only)</p>
+    </div>
+    <nav class="tabs">
+      <button type="button" class="tab active" data-tab="characters">Characters</button>
+      <button type="button" class="tab" data-tab="jobs">Jobs</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="panel-characters" class="panel active">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <input type="search" id="char-search" placeholder="Search name, team, skills…" />
+          <div class="filter-pills" role="group" aria-label="Filter by ready status">
+            <button type="button" class="filter-pill active" data-ready="">All</button>
+            <button type="button" class="filter-pill" data-ready="true">Ready</button>
+            <button type="button" class="filter-pill" data-ready="false">Not ready</button>
+          </div>
+        </div>
+        <button type="button" class="btn primary" id="btn-new-character">+ Add character</button>
+        <button type="button" class="btn small" id="btn-export-chars">Export</button>
+        <label class="btn small" for="input-import-chars">Import</label>
+        <input id="input-import-chars" type="file" accept="application/json" style="display:none" />
+        <div class="card-size-controls" title="Cards per row">
+          <span class="size-label">Cards/row</span>
+          <button type="button" class="btn small" id="card-cols-minus" aria-label="Smaller cards">−</button>
+          <span id="card-cols-label">6</span>
+          <button type="button" class="btn small" id="card-cols-plus" aria-label="Bigger cards">+</button>
+        </div>
+      </div>
+      <div id="char-list" class="card-grid" style="--card-cols: 6"></div>
+    </section>
+
+    <section id="panel-jobs" class="panel">
+      <div class="toolbar">
+        <input type="search" id="job-search" placeholder="Search school, degree, career…" />
+        <button type="button" class="btn primary" id="btn-new-job">+ Add job</button>
+        <button type="button" class="btn small" id="btn-export-jobs">Export</button>
+        <label class="btn small" for="input-import-jobs">Import</label>
+        <input id="input-import-jobs" type="file" accept="application/json" style="display:none" />
+      </div>
+      <div id="job-list" class="job-list"></div>
+    </section>
+  </main>
+
+  <!-- Photo viewer (click character photo to enlarge) -->
+  <div id="popup-photo" class="popup-overlay photo-viewer" hidden aria-hidden="true">
+    <div class="photo-viewer-box" role="dialog" aria-modal="true" aria-label="Photo preview">
+      <button type="button" class="popup-close photo-viewer-close" data-close="popup-photo" aria-label="Close">×</button>
+      <img id="photo-viewer-img" alt="" />
+      <p id="photo-viewer-caption" class="photo-viewer-caption"></p>
+    </div>
+  </div>
+
+  <!-- Character form popup -->
+  <div id="popup-character" class="popup-overlay" hidden aria-hidden="true">
+    <div class="popup-window popup-lg" role="dialog" aria-modal="true" aria-labelledby="char-form-title">
+      <header class="popup-titlebar">
+        <div class="popup-title-text">
+          <span class="popup-icon" aria-hidden="true">◆</span>
+          <div>
+            <h2 id="char-form-title">Add character</h2>
+            <p class="popup-subtitle">Fill the form — saved to localStorage on Save</p>
+          </div>
+        </div>
+        <button type="button" class="popup-close" data-close="popup-character" aria-label="Close">×</button>
+      </header>
+      <form id="form-character" class="popup-body">
+        <input type="hidden" name="id" />
+        <fieldset class="form-section fs-violet">
+          <legend>Status</legend>
+          <label class="check-row">
+            <input type="checkbox" name="ready" />
+            <span>Created / ready</span>
+          </label>
+        </fieldset>
+        <fieldset id="fieldset-status-icon" class="form-section fs-violet">
+          <legend>Status icon <span class="legend-hint">visual identifier</span></legend>
+          <input type="hidden" name="status_icon" />
+          <div id="icon-picker" class="icon-picker" aria-label="Status icon picker"></div>
+                  </fieldset>
+        <fieldset class="form-section fs-cyan">
+          <legend>Name</legend>
+          <div class="form-grid">
+            <label>First name <input name="name" required autocomplete="given-name" /></label>
+            <label>Last name <input name="last_name" required autocomplete="family-name" /></label>
+          </div>
+        </fieldset>
+        <fieldset class="form-section fs-pink">
+          <legend>Profile</legend>
+          <div class="form-grid">
+            <label>Birthday
+              <div class="bday-row">
+                <input type="number" name="bday_day" min="1" max="31" placeholder="DD" />
+                <select name="bday_month">
+                  <option value="">—</option>
+                  <option value="Jan">Jan</option>
+                  <option value="Feb">Feb</option>
+                  <option value="Mar">Mar</option>
+                  <option value="Apr">Apr</option>
+                  <option value="May">May</option>
+                  <option value="Jun">Jun</option>
+                  <option value="Jul">Jul</option>
+                  <option value="Aug">Aug</option>
+                  <option value="Sep">Sep</option>
+                  <option value="Oct">Oct</option>
+                  <option value="Nov">Nov</option>
+                  <option value="Dec">Dec</option>
+                </select>
+              </div>
+            </label>
+            <label>Constellation
+              <select name="constellation">
+                <option value="">—</option>
+                <option value="Aries">Aries</option>
+                <option value="Taurus">Taurus</option>
+                <option value="Gemini">Gemini</option>
+                <option value="Cancer">Cancer</option>
+                <option value="Leo">Leo</option>
+                <option value="Virgo">Virgo</option>
+                <option value="Libra">Libra</option>
+                <option value="Scorpio">Scorpio</option>
+                <option value="Sagittarius">Sagittarius</option>
+                <option value="Capricorn">Capricorn</option>
+                <option value="Aquarius">Aquarius</option>
+                <option value="Pisces">Pisces</option>
+              </select>
+            </label>
+            <label>Height <input name="height" placeholder="e.g. 172 cm" /></label>
+            <label>Team / club <input name="team_club" /></label>
+          </div>
+        </fieldset>
+        <fieldset class="form-section fs-amber">
+          <legend>Extra <span class="legend-hint">optional</span></legend>
+          <div class="form-grid">
+            <label class="span-2">Job
+              <select name="job_id"><option value="">— None —</option></select>
+            </label>
+            <label class="span-2">Skills <textarea name="skills" rows="2"></textarea></label>
+            <label class="span-2">Hobby <textarea name="hobby" rows="2"></textarea></label>
+            <label class="span-2">Weakness <textarea name="weakness" rows="2"></textarea></label>
+          </div>
+        </fieldset>
+        <fieldset class="form-section fs-lime">
+          <legend>Images</legend>
+          <p class="field-hint">Up to 2 PNG or WebP files</p>
+          <div class="image-slots">
+            <div class="image-slot" data-slot="1">
+              <img alt="" hidden />
+              <label class="file-label">Image 1<input type="file" accept="image/png,image/webp" data-upload="1" /></label>
+              <button type="button" class="btn small ghost remove-img" data-slot="1" hidden>Remove</button>
+            </div>
+            <div class="image-slot" data-slot="2">
+              <img alt="" hidden />
+              <label class="file-label">Image 2<input type="file" accept="image/png,image/webp" data-upload="2" /></label>
+              <button type="button" class="btn small ghost remove-img" data-slot="2" hidden>Remove</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <footer class="popup-footer">
+        <button type="button" class="btn danger" id="btn-delete-character" hidden>Delete</button>
+        <div class="spacer"></div>
+        <button type="button" class="btn" data-close="popup-character">Cancel</button>
+        <button type="submit" class="btn primary" form="form-character">Save to localStorage</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Job form popup -->
+  <div id="popup-job" class="popup-overlay" hidden aria-hidden="true">
+    <div class="popup-window" role="dialog" aria-modal="true" aria-labelledby="job-form-title">
+      <header class="popup-titlebar">
+        <div class="popup-title-text">
+          <span class="popup-icon" aria-hidden="true">◆</span>
+          <div>
+            <h2 id="job-form-title">Add job</h2>
+            <p class="popup-subtitle">Fill the form — saved to localStorage on Save</p>
+          </div>
+        </div>
+        <button type="button" class="popup-close" data-close="popup-job" aria-label="Close">×</button>
+      </header>
+      <form id="form-job" class="popup-body">
+        <input type="hidden" name="id" />
+        <fieldset class="form-section">
+          <legend>Job info</legend>
+          <label>School <span class="field-hint">optional</span>
+            <input name="school" placeholder="e.g. History of art" />
+          </label>
+          <label>Degree <span class="field-hint">optional</span>
+            <input name="degree" placeholder="e.g. critic" />
+          </label>
+          <label>Career
+            <input name="career" required placeholder="e.g. critic of art" />
+          </label>
+          <label>Comment <span class="field-hint">optional</span>
+            <textarea name="comment" rows="2" placeholder="Notes…"></textarea>
+          </label>
+        </fieldset>
+        <div id="job-characters-preview" class="form-section job-chars-preview" hidden>
+          <p class="label">Characters with this career</p>
+          <div id="job-characters-list" class="job-chars-row preview-row"></div>
+        </div>
+      </form>
+      <footer class="popup-footer">
+        <button type="button" class="btn danger" id="btn-delete-job" hidden>Delete</button>
+        <div class="spacer"></div>
+        <button type="button" class="btn" data-close="popup-job">Cancel</button>
+        <button type="submit" class="btn primary" form="form-job">Save to localStorage</button>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
